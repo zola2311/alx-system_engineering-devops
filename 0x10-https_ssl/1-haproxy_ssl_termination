@@ -38,7 +38,7 @@ frontend http
 	mode http
 	default_backend web-backend
 frontend www-https
-        bind *:443 ssl crt /etc/haproxy/ssl/www.luisch.tech.pem
+        bind *:443 ssl crt /etc/haproxy/ssl/www.zola2311.tech
         http-request set-header X-Forwarded-Proto https
         default_backend web-backend
 
