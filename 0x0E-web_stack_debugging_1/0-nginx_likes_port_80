@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
-# Script that sets the port 80
-sed -i "s/listen \[::\]:80 default_server ipv6only=on;/listen \[::\]:80 default_server ipv4only=on;/" /etc/nginx/sites-enabled/default
-sed -i "s/ ipv6only=on//" /etc/nginx/sites-available/default
+# This program install nginx on the container holbertonschoo/265
+apt-get update
+apt-get install -y nginx
+service nginx start
+apt-get install curl
+apt-get install emacs
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sed -i "s/listen \[::\]:80 default_server ipv6only=on;/listen \[::\]:80 default_server;/" /etc/nginx/sites-available/default
+cp /usr/share/nginx/html/index.html /var/www/html/
 service nginx reload
